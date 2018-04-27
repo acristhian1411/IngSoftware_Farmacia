@@ -1,0 +1,25 @@
+<%= form_for(@seccion) do |f| %>
+  <% if @seccion.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@seccion.errors.count, "error") %> prohibited this seccion from being saved:</h2>
+
+      <ul>
+      <% @seccion.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :sec_descrip %><br>
+    <%= f.text_field :sec_descrip %>
+  </div>
+  <div class="field">
+    <%= f.label :seccion_active %><br>
+    <%= f.check_box :seccion_active %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
