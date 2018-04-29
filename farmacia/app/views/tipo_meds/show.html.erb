@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Tipo descrip:</strong>
+  <%= @tipo_med.tipo_descrip %>
+</p>
+
+<p>
+  <strong>Tipo active:</strong>
+  <%= @tipo_med.tipo_active %>
+</p>
+
+<%= link_to 'Edit', edit_tipo_med_path(@tipo_med) %> |
+<%= link_to 'Back', tipo_meds_path %>
