@@ -1,0 +1,25 @@
+<%= form_for(@droga) do |f| %>
+  <% if @droga.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@droga.errors.count, "error") %> prohibited this droga from being saved:</h2>
+
+      <ul>
+      <% @droga.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :droga_descrip %><br>
+    <%= f.text_field :droga_descrip %>
+  </div>
+  <div class="field">
+    <%= f.label :droga_active %><br>
+    <%= f.check_box :droga_active %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

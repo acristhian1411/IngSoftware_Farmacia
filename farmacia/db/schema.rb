@@ -11,10 +11,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180429124436) do
+ActiveRecord::Schema.define(version: 20180430003716) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "drogas", force: :cascade do |t|
+    t.string   "droga_descrip"
+    t.boolean  "droga_active"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+  end
 
   create_table "marcas", force: :cascade do |t|
     t.string   "marca_descrip"

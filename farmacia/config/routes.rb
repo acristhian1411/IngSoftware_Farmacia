@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :drogas
   resources :proveedors
   resources :tipo_meds
   get 'home/index'
