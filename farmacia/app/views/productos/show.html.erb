@@ -1,0 +1,59 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Codigo:</strong>
+  <%= @producto.codigo %>
+</p>
+
+<p>
+  <strong>Prod descrip:</strong>
+  <%= @producto.prod_descrip %>
+</p>
+
+<p>
+  <strong>Fecha vence:</strong>
+  <%= @producto.fecha_vence %>
+</p>
+
+<p>
+  <strong>Cantidad:</strong>
+  <%= @producto.cantidad %>
+</p>
+
+<p>
+  <strong>Precio compra:</strong>
+  <%= @producto.precio_compra %>
+</p>
+
+<p>
+  <strong>Precio venta:</strong>
+  <%= @producto.precio_venta %>
+</p>
+
+<p>
+  <strong>Prod active:</strong>
+  <%= @producto.prod_active %>
+</p>
+
+<p>
+  <strong>Marca:</strong>
+  <%= @producto.marca %>
+</p>
+
+<p>
+  <strong>Proveedor:</strong>
+  <%= @producto.proveedor %>
+</p>
+
+<p>
+  <strong>Seccion:</strong>
+  <%= @producto.seccion %>
+</p>
+
+<p>
+  <strong>Tipo med:</strong>
+  <%= @producto.tipo_med %>
+</p>
+
+<%= link_to 'Edit', edit_producto_path(@producto) %> |
+<%= link_to 'Back', productos_path %>

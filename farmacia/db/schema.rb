@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180430003716) do
+ActiveRecord::Schema.define(version: 20180504194116) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -29,6 +29,37 @@ ActiveRecord::Schema.define(version: 20180430003716) do
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
   end
+
+  create_table "producto_drogas", id: false, force: :cascade do |t|
+    t.integer "producto_id"
+    t.integer "droga_id"
+  end
+
+  add_index "producto_drogas", ["droga_id"], name: "index_producto_drogas_on_droga_id", using: :btree
+  add_index "producto_drogas", ["producto_id"], name: "index_producto_drogas_on_producto_id", using: :btree
+
+  create_table "productos", force: :cascade do |t|
+    t.string   "codigo"
+    t.string   "prod_descrip"
+    t.date     "fecha_vence"
+    t.integer  "cantidad"
+    t.float    "precio_compra"
+    t.float    "precio_venta"
+    t.boolean  "prod_active"
+    t.integer  "droga_id"
+    t.integer  "marca_id"
+    t.integer  "proveedor_id"
+    t.integer  "seccion_id"
+    t.integer  "tipo_med_id"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+  end
+
+  add_index "productos", ["droga_id"], name: "index_productos_on_droga_id", using: :btree
+  add_index "productos", ["marca_id"], name: "index_productos_on_marca_id", using: :btree
+  add_index "productos", ["proveedor_id"], name: "index_productos_on_proveedor_id", using: :btree
+  add_index "productos", ["seccion_id"], name: "index_productos_on_seccion_id", using: :btree
+  add_index "productos", ["tipo_med_id"], name: "index_productos_on_tipo_med_id", using: :btree
 
   create_table "proveedors", force: :cascade do |t|
     t.string   "ruc"
@@ -55,4 +86,9 @@ ActiveRecord::Schema.define(version: 20180430003716) do
     t.datetime "updated_at",   null: false
   end
 
+  add_foreign_key "productos", "drogas"
+  add_foreign_key "productos", "marcas"
+  add_foreign_key "productos", "proveedors"
+  add_foreign_key "productos", "seccions"
+  add_foreign_key "productos", "tipo_meds"
 end
