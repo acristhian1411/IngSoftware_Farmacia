@@ -14,7 +14,10 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require bootstrap-sprockets
+//= require select2
 //= require_tree .
+
+
 $("#menu-toggle").click(function(e) {
         e.preventDefault();
         $("#wrapper").toggleClass("active");

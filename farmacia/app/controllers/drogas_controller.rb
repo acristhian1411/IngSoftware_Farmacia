@@ -4,7 +4,7 @@ class DrogasController < ApplicationController
   # GET /drogas
   # GET /drogas.json
   def index
-    @drogas = Droga.all
+    @drogas = Droga.where("droga_active != false")
   end
 
   # GET /drogas/1

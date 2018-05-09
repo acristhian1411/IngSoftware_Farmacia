@@ -4,7 +4,7 @@ class TipoMedsController < ApplicationController
   # GET /tipo_meds
   # GET /tipo_meds.json
   def index
-    @tipo_meds = TipoMed.all
+    @tipo_meds = TipoMed.where("tipo_active != false")
   end
 
   # GET /tipo_meds/1
@@ -54,11 +54,7 @@ class TipoMedsController < ApplicationController
   # DELETE /tipo_meds/1
   # DELETE /tipo_meds/1.json
   def destroy
-    @tipo_med.destroy
-    respond_to do |format|
-      format.html { redirect_to tipo_meds_url, notice: 'Tipo med was successfully destroyed.' }
-      format.json { head :no_content }
-    end
+    update tipo_active: false
   end
 
   private

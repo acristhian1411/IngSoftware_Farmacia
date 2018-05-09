@@ -4,7 +4,7 @@ class MarcasController < ApplicationController
   # GET /marcas
   # GET /marcas.json
   def index
-    @marcas = Marca.all
+    @marcas = Marca.where("marca_active != false")
   end
 
   # GET /marcas/1
@@ -69,7 +69,7 @@ class MarcasController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def marca_params
-      params.require(:marca).permit(:marca_descrip, :marca_active=> true)
+      params.require(:marca).permit(:marca_descrip, :marca_active )
 
     end
 end
