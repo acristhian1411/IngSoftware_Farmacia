@@ -5,6 +5,12 @@ class ProductosController < ApplicationController
   # GET /productos.json
   def index
     @productos = Producto.where("prod_active != false")
+    @droga = Droga.all
+    @tipo_med = TipoMed.all
+    @proveedor = Proveedor.all
+    @marca = Marca.all
+    @seccion = Seccion.all
+
   end
 
   # GET /productos/1
@@ -15,16 +21,31 @@ class ProductosController < ApplicationController
   # GET /productos/new
   def new
     @producto = Producto.new
+    @droga = Droga.all
+    @tipo_med = TipoMed.all
+    @proveedor = Proveedor.all
+    @marca = Marca.all
+    @seccion = Seccion.all
   end
 
   # GET /productos/1/edit
   def edit
+    @droga = Droga.all
+    @tipo_med = TipoMed.all
+    @proveedor = Proveedor.all
+    @marca = Marca.all
+    @seccion = Seccion.all
   end
 
   # POST /productos
   # POST /productos.json
   def create
     @producto = Producto.new(producto_params)
+    @droga = Droga.all
+    @tipo_med = TipoMed.all
+    @proveedor = Proveedor.all
+    @marca = Marca.all
+    @seccion = Seccion.all
 
     respond_to do |format|
       if @producto.save
@@ -40,6 +61,13 @@ class ProductosController < ApplicationController
   # PATCH/PUT /productos/1
   # PATCH/PUT /productos/1.json
   def update
+    @droga = Droga.all
+    @tipo_med = TipoMed.all
+    @proveedor = Proveedor.all
+    @marca = Marca.all
+    @seccion = Seccion.all
+
+
     respond_to do |format|
       if @producto.update(producto_params)
         format.html { redirect_to @producto, notice: 'Producto was successfully updated.' }
