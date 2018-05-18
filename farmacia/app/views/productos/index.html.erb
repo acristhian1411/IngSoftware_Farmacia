@@ -12,7 +12,6 @@
       <th>Precio compra</th>
       <th>Precio venta</th>
       <th>Prod active</th>
-      <th>Droga</th>
       <th>Marca</th>
       <th>Proveedor</th>
       <th>Seccion</th>
@@ -34,7 +33,7 @@
         <td><%= producto.marca %></td>
         <td><%= producto.proveedor %></td>
         <td><%= producto.seccion %></td>
-        <td><%= producto.tipo_med %></td>
+        <td><%= producto.tipo_med.tipo_descrip %></td>
         <td><%= link_to 'Show', producto %></td>
         <td><%= link_to 'Edit', edit_producto_path(producto) %></td>
         <td><%= link_to 'Destroy', producto, method: :delete, data: { confirm: 'Are you sure?' } %></td>

@@ -5,6 +5,7 @@ class ProductosController < ApplicationController
   # GET /productos.json
   def index
     @productos = Producto.where("prod_active != false")
+    
     @droga = Droga.all
     @tipo_med = TipoMed.all
     @proveedor = Proveedor.all

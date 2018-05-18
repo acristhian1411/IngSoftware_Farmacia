@@ -12,13 +12,12 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require turbolinks
 //= require bootstrap-sprockets
 //= require select2
+//= require turbolinks
 //= require_tree .
 
 
-$("#menu-toggle").click(function(e) {
-        e.preventDefault();
-        $("#wrapper").toggleClass("active");
+$( "#dropdown" ).select2({
+    theme: "bootstrap"
 });
