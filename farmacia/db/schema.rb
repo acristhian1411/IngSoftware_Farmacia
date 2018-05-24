@@ -11,16 +11,27 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180513192236) do
+ActiveRecord::Schema.define(version: 20180517004834) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "clientes", force: :cascade do |t|
+    t.string   "nombre"
+    t.string   "apellido"
+    t.string   "ruc"
+    t.string   "direccion"
+    t.integer  "telefono"
+    t.boolean  "cliente_active"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+  end
+
   create_table "drogas", force: :cascade do |t|
     t.string   "droga_descrip"
-    t.boolean  "droga_active",  default: true
-    t.datetime "created_at",                   null: false
-    t.datetime "updated_at",                   null: false
+    t.boolean  "droga_active"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
   end
 
   create_table "drogas_productos", id: false, force: :cascade do |t|
@@ -33,9 +44,9 @@ ActiveRecord::Schema.define(version: 20180513192236) do
 
   create_table "marcas", force: :cascade do |t|
     t.string   "marca_descrip"
-    t.boolean  "marca_active",  default: true
-    t.datetime "created_at",                   null: false
-    t.datetime "updated_at",                   null: false
+    t.boolean  "marca_active"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
   end
 
   create_table "productos", force: :cascade do |t|
@@ -45,13 +56,13 @@ ActiveRecord::Schema.define(version: 20180513192236) do
     t.integer  "cantidad"
     t.float    "precio_compra"
     t.float    "precio_venta"
-    t.boolean  "prod_active",   default: true
+    t.boolean  "prod_active"
     t.integer  "marca_id"
     t.integer  "proveedor_id"
     t.integer  "seccion_id"
     t.integer  "tipo_med_id"
-    t.datetime "created_at",                   null: false
-    t.datetime "updated_at",                   null: false
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
   end
 
   add_index "productos", ["marca_id"], name: "index_productos_on_marca_id", using: :btree
@@ -65,23 +76,23 @@ ActiveRecord::Schema.define(version: 20180513192236) do
     t.string   "direccion"
     t.string   "telefono"
     t.string   "email"
-    t.boolean  "prov_active",  default: true
-    t.datetime "created_at",                  null: false
-    t.datetime "updated_at",                  null: false
+    t.boolean  "prov_active"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
   end
 
   create_table "seccions", force: :cascade do |t|
     t.string   "sec_descrip"
-    t.boolean  "seccion_active", default: true
-    t.datetime "created_at",                    null: false
-    t.datetime "updated_at",                    null: false
+    t.boolean  "seccion_active"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
   end
 
   create_table "tipo_meds", force: :cascade do |t|
     t.string   "tipo_descrip"
-    t.boolean  "tipo_active",  default: true
-    t.datetime "created_at",                  null: false
-    t.datetime "updated_at",                  null: false
+    t.boolean  "tipo_active"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
   end
 
   add_foreign_key "productos", "marcas"
