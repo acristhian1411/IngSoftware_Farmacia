@@ -41,22 +41,22 @@
 
   <div class="field">
     <%= f.label :marca_id %><br>
-    <%= select_tag("marca[marca_id]",  options_for_select(@marca.map{|m|["#{m.marca_descrip}", m.id]})) %>  
+    <%= select_tag("producto[marca_id]",  options_for_select(@marca.map{|m|["#{m.marca_descrip}", m.id]})) %>  
   </div>
 
   <div class="field">
     <%= f.label :proveedor_id %><br>
-   <%= select_tag("proveedor[proveedor_id]",  options_for_select(@proveedor.map{|c|["#{c.razon_social}", c.id]})) %>
+   <%= select_tag("producto[proveedor_id]",  options_for_select(@proveedor.map{|c|["#{c.razon_social}", c.id]})) %>
   </div>
 
   <div class="field">
     <%= f.label :seccion_id %><br>
-    <%= select_tag("seccion[seccion_id]",  options_for_select(@seccion.map{|c|["#{c.sec_descrip}", c.id]})) %>
+    <%= select_tag("producto[seccion_id]",  options_for_select(@seccion.map{|c|["#{c.sec_descrip}", c.id]})) %>
   </div>
 
   <div class="field">
     <%= f.label :tipo_med_id %><br>
-    <%= select_tag("tipo_med[tipo_med_id]",  options_for_select(@tipo_med.map{|c|["#{c.tipo_descrip}", c.id]})) %>
+    <%= select_tag("producto[tipo_med_id]",  options_for_select(@tipo_med.map{|c|["#{c.tipo_descrip}", c.id]})) %>
   </div>
 
 <div class="field">
@@ -72,31 +72,12 @@
 
 
 <script type="text/javascript">
-          $('select#marca_marca_id').select2({
-            placeholder: "Marca",
+          $(document).ready(function() {
+            console.log("hola")
+          $('select#producto_marca_id').select2({
+            placeholder: "Marca  ",
             allowClear: true
           });
-
-          $('select#proveedor_proveedor_id').select2({
-            placeholder: "Proveedor",
-            allowClear: true
-          });
-
-         
-          $('select#seccion_seccion_id').select2({
-            placeholder: "Seccion",
-            allowClear: true
-          });
-
-         
-          $('select#tipo_med_tipo_med_id').select2({
-            placeholder: "Tipo de medicamento",
-            allowClear: true
-          });
-
-         
-          $('select#droga_droga_id').select2({
-            placeholder: "Droga",
-            allowClear: true
-          });
+        });
 </script>
+
