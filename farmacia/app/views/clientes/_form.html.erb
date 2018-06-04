@@ -1,3 +1,6 @@
+<section class="no-padding-top">
+          <div class="container-fluid">
+            <div class="row">
 <%= form_for(@cliente) do |f| %>
   <% if @cliente.errors.any? %>
     <div id="error_explanation">
@@ -10,7 +13,10 @@
       </ul>
     </div>
   <% end %>
-
+<div class="col-lg-12">
+                <div class="block">
+                  <div class="title"><strong>Formulario De Clientes</strong></div>
+                  <div class="block-body text-center">
   <div class="field">
     <%= f.label :nombre %><br>
     <%= f.text_field :nombre, type: "text", required_pattern: "text" %>
@@ -38,4 +44,10 @@
   <div class="actions">
     <%= f.submit %>
   </div>
+  </div>
+    </div>
+  </div>
+ </div>
 <% end %>
+  </div>
+</section>

@@ -1,3 +1,6 @@
+<section class="no-padding-top">
+          <div class="container-fluid">
+            <div class="row">
 <%= form_for(@producto) do |f| %>
   <% if @producto.errors.any? %>
     <div id="error_explanation">
@@ -10,7 +13,10 @@
       </ul>
     </div>
   <% end %>
-
+<div class="col-lg-12">
+                <div class="block">
+                  <div class="title"><strong>Formulario De Productos</strong></div>
+                  <div class="block-body text-center">
   <div class="field">
     <%= f.label :codigo %><br>
     <%= f.text_field :codigo %>
@@ -68,8 +74,12 @@
   <div class="actions">
     <%= f.submit %>
   </div>
+</div>
+    </div>
+  </div>
+ </div>
 <% end %>
-
+  </div>
 
 <script type="text/javascript">
           $(document).ready(function() {
