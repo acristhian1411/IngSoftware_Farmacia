@@ -17,6 +17,7 @@ class ProductosController < ApplicationController
   # GET /productos/1
   # GET /productos/1.json
   def show
+    
   end
 
   # GET /productos/new
@@ -42,12 +43,11 @@ class ProductosController < ApplicationController
   # POST /productos.json
   def create
     @producto = Producto.new(producto_params)
-    @droga = Droga.all
     @tipo_med = TipoMed.all
     @proveedor = Proveedor.all
     @marca = Marca.all
     @seccion = Seccion.all
-
+    @droga = Droga.find(params[:droga][:droga_id]) 
     respond_to do |format|
       if @producto.save
         format.html { redirect_to @producto, notice: 'Producto was successfully created.' }

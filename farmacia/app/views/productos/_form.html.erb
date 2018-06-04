@@ -59,14 +59,19 @@
     <%= select_tag("producto[tipo_med_id]",  options_for_select(@tipo_med.map{|c|["#{c.tipo_descrip}", c.id]})) %>
   </div>
 
-<div class="field">
+  <div class="field">
     <%= f.label :droga_id %><br>
-   <%= select_tag("droga[droga_id]",  options_for_select(@droga.map{|c|["#{c.droga_descrip}", c.id]})) %>
+    
+     <% @droga.each do |t| %>
+  <%= label_tag t.droga_descrip  %>
+  <%= check_box_tag "droga[#{t.id}]", t.droga_descrip  %>
+  <br />
+<% end %>
   </div>
 
 
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit 'Guardar', :class => 'btn btn-primary'%>
   </div>
 <% end %>
 

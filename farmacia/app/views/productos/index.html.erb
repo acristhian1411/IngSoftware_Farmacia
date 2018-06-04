@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Listing Productos</h1>
+<h1>Productos</h1>
 
 <table class="table table-warning">
   <thead>
@@ -31,7 +31,7 @@
         <td><%= producto.precio_venta %></td>
         <td><%= producto.prod_active %></td>
         <td><%= producto.marca %></td>
-        <td><%= producto.proveedor %></td>
+        <td><%= producto.proveedor.razon_social %></td>
         <td><%= producto.seccion %></td>
         <td><%= producto.tipo_med.tipo_descrip %></td>
         <td><%= link_to 'Show', producto %></td>
