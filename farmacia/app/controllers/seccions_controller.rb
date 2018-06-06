@@ -54,11 +54,9 @@ class SeccionsController < ApplicationController
   # DELETE /seccions/1
   # DELETE /seccions/1.json
   def destroy
-    @seccion.destroy
-    respond_to do |format|
-      format.html { redirect_to seccions_url, notice: 'Seccion was successfully destroyed.' }
-      format.json { head :no_content }
-    end
+    seccion = Seccion.find(params[:id])
+    seccion.update_attribute(:tipo_active, false)
+    redirect_to seccion_path
   end
 
   private

@@ -54,11 +54,9 @@ class MarcasController < ApplicationController
   # DELETE /marcas/1
   # DELETE /marcas/1.json
   def destroy
-    @marca.destroy
-    respond_to do |format|
-      format.html { redirect_to marcas_url, notice: 'Marca was successfully destroyed.' }
-      format.json { head :no_content }
-    end
+    marca = Marca.find(params[:id])
+    marca.update_attribute(:marca_active, false)
+    redirect_to marcas_path
   end
 
   private

@@ -54,7 +54,9 @@ class TipoMedsController < ApplicationController
   # DELETE /tipo_meds/1
   # DELETE /tipo_meds/1.json
   def destroy
-    update tipo_active: false
+    tipo = TipoMed.find(params[:id])
+    tipo.update_attribute(:tipo_active, false)
+    redirect_to tipo_med_path
   end
 
   private

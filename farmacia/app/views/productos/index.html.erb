@@ -38,9 +38,9 @@
         <td><%= producto.precio_venta %></td>
         <td><%= producto.prod_active %></td>
         <td><%= producto.marca %></td>
-        <td><%= producto.proveedor.razon_social %></td>
+        <td><%= producto.proveedor %></td>
         <td><%= producto.seccion %></td>
-        <td><%= producto.tipo_med.tipo_descrip %></td>
+        <td><%= producto.tipo_med %></td>
         <td><%= link_to 'Show', producto %></td>
         <td><%= link_to 'Edit', edit_producto_path(producto) %></td>
         <td><%= link_to 'Destroy', producto, method: :delete, data: { confirm: 'Are you sure?' } %></td>

@@ -28,7 +28,7 @@ class DrogasController < ApplicationController
 
     respond_to do |format|
       if @droga.save
-        format.html { redirect_to @droga, notice: 'Droga was successfully created.' }
+        format.html { redirect_to @droga, notice: 'Se creo con exito.' }
         format.json { render :show, status: :created, location: @droga }
       else
         format.html { render :new }
@@ -42,7 +42,7 @@ class DrogasController < ApplicationController
   def update
     respond_to do |format|
       if @droga.update(droga_params)
-        format.html { redirect_to @droga, notice: 'Droga was successfully updated.' }
+        format.html { redirect_to @droga, notice: 'Se actualizo con exito.' }
         format.json { render :show, status: :ok, location: @droga }
       else
         format.html { render :edit }
@@ -54,11 +54,9 @@ class DrogasController < ApplicationController
   # DELETE /drogas/1
   # DELETE /drogas/1.json
   def destroy
-    @droga.destroy
-    respond_to do |format|
-      format.html { redirect_to drogas_url, notice: 'Droga was successfully destroyed.' }
-      format.json { head :no_content }
-    end
+    droga = Droga.find(params[:id])
+    droga.update_attribute(:droga_descrip, false)
+    redirect_to droga_path
   end
 
   private

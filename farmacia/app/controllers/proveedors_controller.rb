@@ -54,10 +54,9 @@ class ProveedorsController < ApplicationController
   # DELETE /proveedors/1
   # DELETE /proveedors/1.json
   def destroy
-    @proveedor.destroy
-    respond_to do |format|
-      format.html { redirect_to proveedors_url, notice: 'Proveedor was successfully destroyed.' }
-      format.json { head :no_content }
+    prov = Proveedor.find(params[:id])
+    prov.update_attribute(:tipo_active, false)
+    redirect_to proveedor_path
     end
   end
 
