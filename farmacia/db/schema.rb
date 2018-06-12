@@ -29,9 +29,9 @@ ActiveRecord::Schema.define(version: 20180606010127) do
 
   create_table "drogas", force: :cascade do |t|
     t.string   "droga_descrip"
-    t.boolean  "droga_active",  default: true
-    t.datetime "created_at",                   null: false
-    t.datetime "updated_at",                   null: false
+    t.boolean  "droga_active"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
   end
 
   create_table "drogas_x_productos", force: :cascade do |t|
@@ -46,9 +46,9 @@ ActiveRecord::Schema.define(version: 20180606010127) do
 
   create_table "marcas", force: :cascade do |t|
     t.string   "marca_descrip"
-    t.boolean  "marca_active",  default: true
-    t.datetime "created_at",                   null: false
-    t.datetime "updated_at",                   null: false
+    t.boolean  "marca_active"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
   end
 
   create_table "productos", force: :cascade do |t|
@@ -58,13 +58,13 @@ ActiveRecord::Schema.define(version: 20180606010127) do
     t.integer  "cantidad"
     t.float    "precio_compra"
     t.float    "precio_venta"
-    t.boolean  "prod_active",   default: true
+    t.boolean  "prod_active"
     t.integer  "marca_id"
     t.integer  "proveedor_id"
     t.integer  "seccion_id"
     t.integer  "tipo_med_id"
-    t.datetime "created_at",                   null: false
-    t.datetime "updated_at",                   null: false
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
   end
 
   add_index "productos", ["marca_id"], name: "index_productos_on_marca_id", using: :btree
@@ -78,23 +78,23 @@ ActiveRecord::Schema.define(version: 20180606010127) do
     t.string   "direccion"
     t.string   "telefono"
     t.string   "email"
-    t.boolean  "prov_active",  default: true
-    t.datetime "created_at",                  null: false
-    t.datetime "updated_at",                  null: false
+    t.boolean  "prov_active"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
   end
 
   create_table "seccions", force: :cascade do |t|
     t.string   "sec_descrip"
-    t.boolean  "seccion_active", default: true
-    t.datetime "created_at",                    null: false
-    t.datetime "updated_at",                    null: false
+    t.boolean  "seccion_active"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
   end
 
   create_table "tipo_meds", force: :cascade do |t|
     t.string   "tipo_descrip"
-    t.boolean  "tipo_active",  default: true
-    t.datetime "created_at",                  null: false
-    t.datetime "updated_at",                  null: false
+    t.boolean  "tipo_active"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
   end
 
   create_table "users", force: :cascade do |t|
