@@ -1,5 +1,13 @@
-<section class="no-padding-top">
-          <div class="container-fluid">
+<section class="charts">
+            <div class="container-fluid">
+              <div class="row">
+                <!-- Line Charts-->
+                <div class="col-lg-8">
+                  <div class="line-chart-example card">
+                   
+                    <div class="card-header d-flex align-items-center">
+                      <h3 class="h4">Formulario De tipos De Medicamentos</h3>
+                    </div>
             <div class="row">
 <%= form_for(@tipo_med) do |f| %>
   <% if @tipo_med.errors.any? %>
@@ -15,7 +23,7 @@
   <% end %>
 <div class="col-lg-12">
                 <div class="block">
-                  <div class="title"><strong>Formulario De Tipos De Medicamentos</strong></div>
+                   
                   <div class="block-body text-center">
   <div class="field">
     <%= f.label :tipo_descrip %><br>

@@ -50,7 +50,7 @@ class ProductosController < ApplicationController
     @droga = Droga.find(params[:droga][:droga_id]) 
     respond_to do |format|
       if @producto.save
-        format.html { redirect_to @producto, notice: 'Producto was successfully created.' }
+        format.html { redirect_to @producto, notice: 'Producto fue creado con éxito.' }
         format.json { render :show, status: :created, location: @producto }
       else
         format.html { render :new }
@@ -71,7 +71,7 @@ class ProductosController < ApplicationController
 
     respond_to do |format|
       if @producto.update(producto_params)
-        format.html { redirect_to @producto, notice: 'Producto was successfully updated.' }
+        format.html { redirect_to @producto, notice: 'Producto fue actualizado con éxito.' }
         format.json { render :show, status: :ok, location: @producto }
       else
         format.html { render :edit }

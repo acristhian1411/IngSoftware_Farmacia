@@ -1,5 +1,13 @@
-<section class="no-padding-top">
-          <div class="container-fluid">
+<section class="charts">
+            <div class="container-fluid">
+              <div class="row">
+                <!-- Line Charts-->
+                <div class="col-lg-8">
+                  <div class="line-chart-example card">
+                   
+                    <div class="card-header d-flex align-items-center">
+                      <h3 class="h4">Formulario De Secciones</h3>
+                    </div>
             <div class="row">
 <%= form_for(@seccion) do |f| %>
   <% if @seccion.errors.any? %>
@@ -15,7 +23,7 @@
   <% end %>
 <div class="col-lg-12">
                 <div class="block">
-                  <div class="title"><strong>Formulario De Secciones</strong></div>
+                 
                   <div class="block-body text-center">
   <div class="field">
     <%= f.label :sec_descrip %><br>
@@ -34,4 +42,7 @@
  </div>
 <% end %>
   </div>
-</section>
+ </div>
+              </div>
+            </div>
+          </section>

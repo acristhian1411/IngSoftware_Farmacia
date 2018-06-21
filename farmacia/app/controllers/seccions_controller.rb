@@ -28,7 +28,7 @@ class SeccionsController < ApplicationController
 
     respond_to do |format|
       if @seccion.save
-        format.html { redirect_to @seccion, notice: 'Seccion was successfully created.' }
+        format.html { redirect_to @seccion, notice: 'Seccion fue creado con éxito.' }
         format.json { render :show, status: :created, location: @seccion }
       else
         format.html { render :new }
@@ -42,7 +42,7 @@ class SeccionsController < ApplicationController
   def update
     respond_to do |format|
       if @seccion.update(seccion_params)
-        format.html { redirect_to @seccion, notice: 'Seccion was successfully updated.' }
+        format.html { redirect_to @seccion, notice: 'Seccion fue actualizado con éxito.' }
         format.json { render :show, status: :ok, location: @seccion }
       else
         format.html { render :edit }
