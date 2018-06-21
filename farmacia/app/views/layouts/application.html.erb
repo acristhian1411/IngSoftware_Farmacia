@@ -55,17 +55,24 @@
           </div>
           <!-- Sidebar Navidation Menus--><span class="heading">Main</span>
           <ul class="list-unstyled">
-                    
-                <li class="active"><%= link_to 'Inicio', controller: :home  %></li>
+                   
+                <li class='<%= active_for(controller: "home") %>'><%= link_to 'Inicio', controller: :home  %></li>
 
-       <li><%= link_to 'Clientes', clientes_path %></li>
-      <li><%= link_to 'Marcas', marcas_path %></li>
-       <li><%= link_to 'Productos', productos_path %></li>
-      <li><%= link_to 'Secciones', seccions_path %></li>
-      <li><%= link_to 'Drogas', drogas_path %></li>
-      <li><%= link_to 'Tipo de medicamentos', tipo_meds_path %></li>
-      <li><%= link_to 'Proveedores', proveedors_path %></li>
-                    <li><a href="login.html"> <i class="icon-interface-windows"></i>Login page </a></li>
+       <li class='<%= active_for(controller: "clientes") %>'><%= link_to 'Clientes', clientes_path %></li>
+     
+      <li class='<%= active_for(controller: "marcas") %>'><%= link_to 'Marcas', marcas_path %></li>
+       
+       <li class='<%= active_for(controller: "productos") %>'><%= link_to 'Productos', productos_path %></li>
+      
+      <li class='<%= active_for(controller: "seccions") %>'><%= link_to 'Secciones', seccions_path %></li>
+      
+      <li class='<%= active_for(controller: "drogas") %>'><%= link_to 'Drogas', drogas_path %></li>
+      
+      <li class='<%= active_for(controller: "tipo_meds") %>'><%= link_to 'Tipo de medicamentos', tipo_meds_path %></li>
+      
+      <li class='<%= active_for(controller: "proveedors_meds") %>'><%= link_to 'Proveedores', proveedors_path %></li>
+                    
+                    <li><a href="login.html"> <i class=""></i>Login page </a></li>
           
         </nav>
         <div class="content-inner">
@@ -79,8 +86,7 @@
     
      
      
-
-
+ 
 
 
 
