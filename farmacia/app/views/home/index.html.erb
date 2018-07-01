@@ -28,6 +28,25 @@
       </tr>
     <% end %>
   </tbody>
+   <thead>
+    <tr>
+      <th colspan="5"> Poca cantidad de medicamento </th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% if @productos.where("fecha_vence = ?", 1 %>
+    <% @productos.each do |producto| %>
+      <tr>
+        <td><%= producto.codigo %></td>
+        <td><%= producto.prod_descrip %></td>
+        <td><%= producto.fecha_vence %></td>
+        <td><%= producto.cantidad %></td>
+        <td><%= link_to 'Mostrar', producto %></td>
+      </tr>
+    <% end %>
+    <% end %>
+  </tbody>
 </table>
                   </div>
                   <p></p>
