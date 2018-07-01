@@ -9,6 +9,26 @@
                 <div class="content">
                   <div class="logo">
                     <h1>Bienvinido</h1>
+
+                    <table class="table table-striped">
+  <thead>
+    <tr>
+      <th colspan="5">Medicamentos que vencen hoy</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @productos.each do |producto| %>
+      <tr>
+        <td><%= producto.codigo %></td>
+        <td><%= producto.prod_descrip %></td>
+        <td><%= producto.fecha_vence %></td>
+        <td><%= producto.cantidad %></td>
+        <td><%= link_to 'Mostrar', producto %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
                   </div>
                   <p></p>
                 </div>

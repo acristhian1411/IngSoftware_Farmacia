@@ -47,7 +47,7 @@ class ProductosController < ApplicationController
     @proveedor = Proveedor.all
     @marca = Marca.all
     @seccion = Seccion.all
-    @droga = Droga.find(params[:droga][:droga_id]) 
+    @droga = Droga.all
     respond_to do |format|
       if @producto.save
         format.html { redirect_to @producto, notice: 'Producto fue creado con éxito.' }

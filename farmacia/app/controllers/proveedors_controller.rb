@@ -70,4 +70,4 @@ class ProveedorsController < ApplicationController
     def proveedor_params
       params.require(:proveedor).permit(:ruc, :razon_social, :direccion, :telefono, :email, :prov_active)
     end
-end
+    
