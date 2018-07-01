@@ -19,6 +19,7 @@
 
   <tbody>
     <% @productos.each do |producto| %>
+      <% if producto.fecha_vence == Date.today %>
       <tr>
         <td><%= producto.codigo %></td>
         <td><%= producto.prod_descrip %></td>
@@ -27,6 +28,7 @@
         <td><%= link_to 'Mostrar', producto %></td>
       </tr>
     <% end %>
+    <% end %>
   </tbody>
    <thead>
     <tr>
@@ -34,9 +36,12 @@
     </tr>
   </thead>
 
+
+
   <tbody>
-    <% if @productos.where("fecha_vence = ?", 1 %>
+    
     <% @productos.each do |producto| %>
+    <% if producto.cantidad <=  1  %>
       <tr>
         <td><%= producto.codigo %></td>
         <td><%= producto.prod_descrip %></td>
