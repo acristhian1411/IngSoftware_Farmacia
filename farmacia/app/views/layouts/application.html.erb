@@ -45,15 +45,14 @@
         <nav class="side-navbar">
           <!-- Sidebar Header-->
           <div class="sidebar-header d-flex align-items-center">
-            <div class="avatar"><img src="images/avatar-1.jpg" 
-
-             alt="..." class="img-fluid rounded-circle"></div>
+           
+             <%= image_tag("avatar-1.jpg", :alt => "rss feed") %>
             <div class="title">
               <h1 class="h4">Cristhian</h1>
               <p>Administrador</p>
             </div>
           </div>
-          <!-- Sidebar Navidation Menus--><span class="heading">Main</span>
+          <!-- Sidebar Navidation Menus--><span class="heading">Menus</span>
           <ul class="list-unstyled">
                    
                 <li class='<%= active_for(controller: "home") %>'><%= link_to 'Inicio', controller: :home  %></li>
@@ -72,7 +71,7 @@
       
       <li class='<%= active_for(controller: "proveedors_meds") %>'><%= link_to 'Proveedores', proveedors_path %></li>
                     
-                    <li><a href="login.html"> <i class=""></i>Login page </a></li>
+                    <li><a href="login.html"> <i class=""></i>Salir </a></li>
           
         </nav>
         <div class="content-inner">
