@@ -7,6 +7,7 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+       
 
 <div class="page">
       <!-- Main Navbar-->
@@ -34,7 +35,20 @@
                
            
                 <!-- Logout    -->
-                <li class="nav-item"><a href="login.html" class="nav-link logout"> <span class="d-none d-sm-inline">Salir</span><i class="fa fa-sign-out"></i></a></li>
+                <li class="nav-item">
+                <span class="d-none d-sm-inline">           
+           <% if current_user %>                
+
+           <li><%= link_to "Salir ", destroy_user_session_path, method: :delete%></li>
+
+          <% else %>
+
+          
+            <li><%= link_to "Ingresar ",  new_user_session_path %> </li>
+
+           <% end %>
+            <% if current_user %> 
+           </span><i class="fa fa-sign-out"></i></a></li>
               </ul>
             </div>
           </div>
@@ -44,18 +58,25 @@
         <!-- Side Navbar -->
         <nav class="side-navbar">
           <!-- Sidebar Header-->
+           <% if current_user %> 
+          
           <div class="sidebar-header d-flex align-items-center">
            
              <%= image_tag("avatar-1.jpg", :alt => "rss feed") %>
             <div class="title">
-              <h1 class="h4">Cristhian</h1>
+              <h1 class="h4"><%= current_user.name %></h1>
+              <% if current_user.admin == true %>
               <p>Administrador</p>
+              <%else%>
+                <p>Usuario</p>
+              <% end %>
             </div>
           </div>
+          <% end %>
           <!-- Sidebar Navidation Menus--><span class="heading">Menus</span>
           <ul class="list-unstyled">
                    
-                <li class='<%= active_for(controller: "home") %>'><%= link_to 'Inicio', controller: :home  %></li>
+                
 
        <li class='<%= active_for(controller: "clientes") %>'><%= link_to 'Clientes', clientes_path %></li>
      
@@ -70,8 +91,17 @@
       <li class='<%= active_for(controller: "tipo_meds") %>'><%= link_to 'Tipo de medicamentos', tipo_meds_path %></li>
       
       <li class='<%= active_for(controller: "proveedors_meds") %>'><%= link_to 'Proveedores', proveedors_path %></li>
-                    
-                    <li><a href="login.html"> <i class=""></i>Salir </a></li>
+                    <% end %>
+                    <li>           <% if current_user %>
+
+           <li><%= link_to "salir", destroy_user_session_path, method: :delete%></li>
+
+          <% else %>
+
+          
+            <li><%= link_to "ingresar",  new_user_session_path %> </li>
+
+           <% end %></li>
           
         </nav>
         <div class="content-inner">
@@ -82,68 +112,11 @@
             </div>
           </header>
 
-    
-     
-     
- 
-
-
-
-<!--
-<nav class="navbar navbar-inverse">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <a class="navbar-brand" <%= link_to 'La Estrellita', controller: :home %>></a>
-    </div>
-
- 
-    <ul class="nav navbar-nav">
-
-
-     
-      
-      <li class="active"><% link_to 'Inicio', controller: :home  %></li>
-
-       
-      <li><% link_to 'Marcas', marcas_path %></li>
-      <li><% link_to 'Secciones', seccions_path %></li>
-      <li><% link_to 'Drogas', drogas_path %></li>
-      <li><% link_to 'Tipo de medicamentos', tipo_meds_path %></li>
-      <li><% link_to 'Proveedores', proveedors_path %></li>
-    
-
- </ul>
-
-  </div>
-</nav>
-
--->
-
-
+    <p class="notice"><%= notice %></p>
+       <p class="alert"><%= alert %></p>
 
 <%= yield %>
 
-<!-- estilos 
 
-<style>
-.dropdown {
-    position: relative;
-    display: inline-block;
-}
-
-.dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: #f9f9f9;
-    min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    padding: 12px 16px;
-    z-index: 1;
-}
-
-.dropdown:hover .dropdown-content {
-    display: block;
-}
-</style>-->
 </body>
 </html>

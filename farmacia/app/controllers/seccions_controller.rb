@@ -1,6 +1,6 @@
 class SeccionsController < ApplicationController
   before_action :set_seccion, only: [:show, :edit, :update, :destroy]
-
+  before_action :authenticate_user!
   # GET /seccions
   # GET /seccions.json
   def index

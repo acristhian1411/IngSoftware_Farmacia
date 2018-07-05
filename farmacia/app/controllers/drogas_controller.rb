@@ -1,6 +1,6 @@
 class DrogasController < ApplicationController
   before_action :set_droga, only: [:show, :edit, :update, :destroy]
-
+  before_action :authenticate_user!
   # GET /drogas
   # GET /drogas.json
   def index
