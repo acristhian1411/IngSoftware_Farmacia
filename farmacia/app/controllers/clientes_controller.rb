@@ -4,7 +4,7 @@ class ClientesController < ApplicationController
   # GET /clientes
   # GET /clientes.json
   def index
-    @clientes = Cliente.where("cliente_active != false")
+    @clientes = Cliente.all
   end
 
   # GET /clientes/1

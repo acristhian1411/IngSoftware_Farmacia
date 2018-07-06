@@ -34,15 +34,32 @@
   <tbody>
     <% @clientes.each do |cliente| %>
       <tr>
-        <td><%= cliente.nombre %></td>
-        <td><%= cliente.apellido %></td>
-        <td><%= cliente.ruc %></td>
-        <td><%= cliente.direccion %></td>
-        <td><%= cliente.telefono %></td>
-        <td><%= cliente.cliente_active %></td>
-        <td><%= link_to 'Mostrar', cliente %></td>
-        <td><%= link_to 'Editar', edit_cliente_path(cliente) %></td>
-        <td><%= link_to 'Eliminar', cliente, method: :delete, data: { confirm: 'Estás seguro?' } %></td>
+         <% if current_user.admin == true %>
+              <td><%= cliente.nombre %></td>
+              <td><%= cliente.apellido %></td>
+              <td><%= cliente.ruc %></td>
+              <td><%= cliente.direccion %></td>
+              <td><%= cliente.telefono %></td>
+              <td><%= cliente.cliente_active %></td>
+              <td><%= link_to 'Mostrar', cliente %></td>
+              <td><%= link_to 'Editar', edit_cliente_path(cliente) %></td>
+              <td><%= link_to 'Eliminar', cliente, method: :delete, data: { confirm: 'Estás seguro?' } %></td>
+
+        <% else %>
+              <% if cliente.cliente_active == true %>
+                  <td><%= cliente.nombre %></td>
+                  <td><%= cliente.apellido %></td>
+                  <td><%= cliente.ruc %></td>
+                  <td><%= cliente.direccion %></td>
+                  <td><%= cliente.telefono %></td>
+                  <td><%= cliente.cliente_active %></td>
+                  <td><%= link_to 'Mostrar', cliente %></td>
+                  <td><%= link_to 'Editar', edit_cliente_path(cliente) %></td>
+                  <td><%= link_to 'Eliminar', cliente, method: :delete, data: { confirm: 'Estás seguro?' } %>
+                  </td>
+              <% end %>
+
+        <% end %>
       </tr>
     <% end %>
   </tbody>
