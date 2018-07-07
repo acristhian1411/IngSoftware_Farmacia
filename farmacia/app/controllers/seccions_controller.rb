@@ -4,7 +4,13 @@ class SeccionsController < ApplicationController
   # GET /seccions
   # GET /seccions.json
   def index
-    @seccions = Seccion.where("seccion_active != false")
+    if current_user.admin != false
+        @seccions = Seccion.all
+    end
+
+    if current_user.admin != true
+       @seccions = Seccion.where("seccion_active != false")
+    end
   end
 
   # GET /seccions/1

@@ -4,7 +4,13 @@ class MarcasController < ApplicationController
   # GET /marcas
   # GET /marcas.json
   def index
-    @marcas = Marca.where("marca_active != false")
+    if current_user.admin != false
+        @marcas = Marca.all
+    end
+
+    if current_user.admin != true
+       @marcas = Marca.where("marca_active != false")
+    end
   end
 
   # GET /marcas/1

@@ -4,7 +4,13 @@ class ProveedorsController < ApplicationController
   # GET /proveedors
   # GET /proveedors.json
   def index
-    @proveedors = Proveedor.where("prov_active != false")
+    if current_user.admin != false
+        @proveedors = Proveedor.all
+    end
+
+    if current_user.admin != true
+       @proveedors = Proveedor.where("prov_active != false")
+    end
   end
 
   # GET /proveedors/1

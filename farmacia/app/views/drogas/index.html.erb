@@ -30,21 +30,12 @@
                       <tbody>
                         <% @drogas.each do |droga| %>
                         <tr>
-                          <% if current_user.admin == true %>
                               <td><%= droga.droga_descrip %></td>
                               <td><%= droga.droga_active %></td>
                               <td><%= link_to 'Mostrar', droga %></td>
                               <td><%= link_to 'Editar', edit_droga_path(droga) %></td>
-                              <td><%= link_to 'Eliminar', droga, method: :delete, data: { confirm: 'Estás seguro' } %></td>
-                          <% else %>
-                                <% if droga.droga_active == true %>
-                                    <td><%= droga.droga_descrip %></td>
-                                    <td><%= droga.droga_active %></td>
-                                    <td><%= link_to 'Mostrar', droga %></td>
-                                    <td><%= link_to 'Editar', edit_droga_path(droga) %></td>
-                                    <td><%= link_to 'Eliminar', droga, method: :delete, data: { confirm: 'Estás seguro' } %></td>
-                                <% end %>
-                          <% end %>
+                              <td><%= link_to 'Eliminar', droga, method: :delete, data: { confirm: 'Estás seguro' } %>
+                              </td>
 
                           </tr>
                         <% end %>

@@ -4,7 +4,13 @@ class TipoMedsController < ApplicationController
   # GET /tipo_meds
   # GET /tipo_meds.json
   def index
-    @tipo_meds = TipoMed.where("tipo_active != false")
+    if current_user.admin != false
+        @tipo_meds = TipoMed.all
+    end
+
+    if current_user.admin != true
+       @tipo_meds = TipoMed.where("tipo_active != false")
+    end
   end
 
   # GET /tipo_meds/1
