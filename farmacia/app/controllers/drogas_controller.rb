@@ -4,7 +4,14 @@ class DrogasController < ApplicationController
   # GET /drogas
   # GET /drogas.json
   def index
-    @drogas = Droga.where("droga_active != false")
+    @drogas = Droga.all
+    if current_user.admin != false
+        @drogas = Droga.all
+    end
+
+    if current_user.admin != true
+       @drogas = Droga.where("droga_active != false")
+    end
   end
 
   # GET /drogas/1
@@ -55,7 +62,7 @@ class DrogasController < ApplicationController
   # DELETE /drogas/1.json
   def destroy
     droga = Droga.find(params[:id])
-    droga.update_attribute(:droga_descrip, false)
+    droga.update_attribute(:droga_active, false)
     redirect_to droga_path
   end
 

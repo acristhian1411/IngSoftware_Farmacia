@@ -4,8 +4,13 @@ class ProductosController < ApplicationController
   # GET /productos
   # GET /productos.json
   def index
-    @productos = Producto.where("prod_active != false")
-    
+    if current_user.admin != false
+        @productos = Producto.all
+    end
+
+    if current_user.admin != true
+       @productos = Producto.where("prod_active != false")
+    end
     @droga = Droga.all
     @tipo_med = TipoMed.all
     @proveedor = Proveedor.all
