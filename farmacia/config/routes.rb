@@ -1,9 +1,9 @@
 Rails.application.routes.draw do
 
+
   devise_for :users
   resources :clientes
   resources :productos
-  resources :drogas
   resources :proveedors
   resources :tipo_meds
   get 'home/index'
