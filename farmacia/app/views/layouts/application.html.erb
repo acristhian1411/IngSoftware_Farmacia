@@ -37,7 +37,7 @@
                          
 
            <li><%= link_to "Salir ", destroy_user_session_path, method: :delete%></li>
-   <li><%= link_to 'Edit Profile',edit_user_registration_path %></li>
+   <li><%= link_to 'Editar perfil',edit_user_registration_path %></li>
           <% else %>
 
           
@@ -47,6 +47,9 @@
             <% if current_user %> 
            </span></a></li>
               </ul>
+
+
+              
             </div>
           </div>
         </nav>

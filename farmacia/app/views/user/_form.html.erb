@@ -1,0 +1,72 @@
+<section class="charts">
+            <div class="container-fluid">
+              <div class="row">
+                <!-- Line Charts-->
+                <div class="col-lg-8">
+                  <div class="line-chart-example card">
+                   
+                    <div class="card-header d-flex align-items-center">
+                      <h3 class="h4">Formulario de usuarios</h3>
+                    </div>
+                    <div class="card-body">
+            <div class="row">
+<%= form_for(@user) do |f| %>
+  <% if @user.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
+
+      <ul>
+      <% @user.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+<div class="col-lg-11">
+               <div class="form d-flex align-items-center">
+                
+                  <div class="  content">
+
+<div class="field">
+    <%= f.label :email %><br />
+    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+  </div>
+  
+  <div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name, autofocus: true, autocomplete: "nombre" %>
+  </div>
+
+    <div><%= f.check_box :admin, {}, true %> <%= f.label :admin, "Es administrador" %> </div>
+    <div><%= f.check_box :admin, {}, false %> <%= f.label :admin, "No es administrador" %> </div>
+  
+  <div class="field">
+    <%= f.label :password %>
+    <% if @minimum_password_length %>
+    <em>(<%= @minimum_password_length %> characters minimum)</em>
+    <% end %><br />
+    <%= f.password_field :password, autocomplete: "off" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :password_confirmation %><br />
+    <%= f.password_field :password_confirmation, autocomplete: "off" %>
+  </div>
+
+
+
+  <div class="actions">
+    <%= f.submit 'Crear usuario' %>
+  </div>
+
+  </div>
+    </div>
+  
+ </div>
+<% end %>
+  </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>

@@ -1,6 +1,20 @@
 Rails.application.routes.draw do
 
 
+  get 'user/index'
+
+  get 'user/new'
+
+  post 'user/create'
+
+  get 'user/edit'
+
+  patch 'user/update'
+
+  delete 'user/destroy'
+
+  get 'user/show'
+
   devise_for :users
   resources :clientes
   resources :productos
