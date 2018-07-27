@@ -61,8 +61,8 @@ class ProveedorsController < ApplicationController
   # DELETE /proveedors/1.json
   def destroy
     prov = Proveedor.find(params[:id])
-    prov.update_attribute(:tipo_active, false)
-    redirect_to proveedor_path
+    prov.update_attribute(:prov_active, false)
+    redirect_to proveedors_path
     end
   end
 

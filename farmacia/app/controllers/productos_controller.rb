@@ -11,7 +11,7 @@ class ProductosController < ApplicationController
     if current_user.admin != true
        @productos = Producto.where("prod_active != false")
     end
-    @droga = Droga.all
+  
     @tipo_med = TipoMed.all
     @proveedor = Proveedor.all
     @marca = Marca.all
@@ -28,7 +28,6 @@ class ProductosController < ApplicationController
   # GET /productos/new
   def new
     @producto = Producto.new
-    @droga = Droga.all
     @tipo_med = TipoMed.all
     @proveedor = Proveedor.all
     @marca = Marca.all
@@ -37,7 +36,6 @@ class ProductosController < ApplicationController
 
   # GET /productos/1/edit
   def edit
-    @droga = Droga.all
     @tipo_med = TipoMed.all
     @proveedor = Proveedor.all
     @marca = Marca.all
@@ -52,7 +50,6 @@ class ProductosController < ApplicationController
     @proveedor = Proveedor.all
     @marca = Marca.all
     @seccion = Seccion.all
-    @droga = Droga.all
     respond_to do |format|
       if @producto.save
         format.html { redirect_to @producto, notice: 'Producto fue creado con éxito.' }
@@ -67,7 +64,6 @@ class ProductosController < ApplicationController
   # PATCH/PUT /productos/1
   # PATCH/PUT /productos/1.json
   def update
-    @droga = Droga.all
     @tipo_med = TipoMed.all
     @proveedor = Proveedor.all
     @marca = Marca.all

@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Nombre:</strong>
+  <%= @user.name %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @user.email %>
+</p>
+
+<p>
+  <strong>Fecha de creacion:</strong>
+  <%= @user.created_at %>
+</p>
+
+<%= link_to("Editar", {:action => 'edit', :id => @user.id}, :class => "btn btn-primary") %>
+<%= link_to 'Atras', 'index', :class => "btn btn-primary" %>
