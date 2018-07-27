@@ -45,7 +45,7 @@ en:
       update_needs_confirmation: "Actualizó su cuenta con éxito, pero necesitamos verificar su nueva dirección de correo electrónico. Verifique su correo electrónico y siga el enlace de confirmación para confirmar su nueva dirección de correo electrónico."
       updated: "Su cuenta ha sido actualizada exitosamente."
     sessions:
-      signed_in: "Se seconectó éxito."
+      signed_in: "Se conectó con éxito."
       signed_out: "Se desconectó exitosamente."
       already_signed_out: "Se desconectó exitosamente."
     unlocks:
