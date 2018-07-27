@@ -18,6 +18,7 @@ gem 'coffee-rails', '~> 4.1.0'
 gem 'bootstrap-sass'
 gem 'autoprefixer-rails'
 
+
 #gema para select
 gem "select2-rails"
 

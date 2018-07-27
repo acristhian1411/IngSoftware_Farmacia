@@ -8,16 +8,8 @@
 
   <div class="field">
     <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+    <%= f.email_field :email, type: "text",  autofocus: true %>
   </div>
-  
-  <div class="field">
-    <%= f.label :name %><br />
-    <%= f.text_field :name, autofocus: true, autocomplete: "nombre" %>
-  </div>
-
-    <div><%= f.check_box :admin, {}, true %> <%= f.label :admin, "Es administrador" %> </div>
-    <div><%= f.check_box :admin, {}, false %> <%= f.label :admin, "No es administrador" %> </div>
   
   <div class="field">
     <%= f.label :password %>

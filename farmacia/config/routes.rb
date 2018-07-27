@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
 
+  resources :sales
   get 'user/index'
 
   get 'user/new'

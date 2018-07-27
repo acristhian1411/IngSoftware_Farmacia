@@ -9,6 +9,10 @@ class UserController < ApplicationController
   def show
     
   end
+  def edit
+    @user = User.find(params[:id])
+    
+  end
   
   def new
     @user = User.new

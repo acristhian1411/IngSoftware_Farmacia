@@ -89,6 +89,7 @@
       <li class='<%= active_for(controller: "tipo_meds") %>'><%= link_to 'Tipo de medicamentos', tipo_meds_path %></li>
       
       <li class='<%= active_for(controller: "proveedors_meds") %>'><%= link_to 'Proveedores', proveedors_path %></li>
+      <li><%= link_to 'Usuarios', 'user/index' %></li>
                     <% end %>
                     <li>           <% if current_user %>
 
@@ -105,11 +106,12 @@
          <% if current_user %>
         <div class="content-inner">
           <!-- Page Header-->
-          <header class="page-header">
+          <!--<header class="page-header">
             <div class="container-fluid">
               <h2 class="no-margin-bottom"></h2>
             </div>
           </header>
+          -->
  <% end %>
    
 
