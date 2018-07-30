@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
 
+  resources :sale_details
   resources :sales
   get 'user/index'
 

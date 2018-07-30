@@ -5,4 +5,6 @@ class Producto < ActiveRecord::Base
   belongs_to :seccion
   belongs_to :tipo_med
 
+
+
 end
