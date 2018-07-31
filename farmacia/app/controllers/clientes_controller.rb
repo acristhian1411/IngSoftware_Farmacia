@@ -1,8 +1,10 @@
 class ClientesController < ApplicationController
   before_action :set_cliente, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!
+  before_action :set_paper_trail_whodunnit
   # GET /clientes
   # GET /clientes.json
+  
   def index
     if current_user.admin != false
         @clientes = Cliente.all

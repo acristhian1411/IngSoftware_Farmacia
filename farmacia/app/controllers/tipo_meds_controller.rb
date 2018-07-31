@@ -1,6 +1,7 @@
 class TipoMedsController < ApplicationController
   before_action :set_tipo_med, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!
+  before_action :set_paper_trail_whodunnit
   # GET /tipo_meds
   # GET /tipo_meds.json
   def index

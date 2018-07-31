@@ -1,6 +1,7 @@
 class ProveedorsController < ApplicationController
   before_action :set_proveedor, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!
+  before_action :set_paper_trail_whodunnit
   # GET /proveedors
   # GET /proveedors.json
   def index

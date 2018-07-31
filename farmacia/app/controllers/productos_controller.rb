@@ -1,6 +1,7 @@
 class ProductosController < ApplicationController
   before_action :set_producto, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!
+  before_action :set_paper_trail_whodunnit
   # GET /productos
   # GET /productos.json
   def index
