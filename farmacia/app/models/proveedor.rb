@@ -5,5 +5,7 @@ class Proveedor < ActiveRecord::Base
 	validates :direccion, presence: true
 	validates :telefono, presence: true
 
+
+
 	
 end
