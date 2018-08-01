@@ -30,7 +30,6 @@
         <td><%= producto.prod_descrip %></td>
         <td><%= producto.fecha_vence %></td>
         <td><%= producto.cantidad %></td>
-        <td><%= link_to 'Mostrar', producto %></td>
       </tr>
     <% end %>
     <% end %>
@@ -44,14 +43,13 @@
   </thead>
   <tbody>
     
-    <% @productos.each do |producto| %>
-    <% if producto.cantidad <=  1  %>
+    <% @productos.each do |prod| %>
+    <% if prod.cantidad <=  1  %>
       <tr>
-        <td><%= producto.codigo %></td>
-        <td><%= producto.prod_descrip %></td>
-        <td><%= producto.fecha_vence %></td>
-        <td><%= producto.cantidad %></td>
-        <td><%= link_to 'Mostrar', producto %></td>
+        <td><%= prod.codigo %></td>
+        <td><%= prod.prod_descrip %></td>
+        <td><%= prod.fecha_vence %></td>
+        <td><%= prod.cantidad %></td>
       </tr>
     <% end %>
     <% end %>

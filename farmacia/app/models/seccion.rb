@@ -3,5 +3,6 @@ class Seccion < ActiveRecord::Base
 	
 	has_many :producto
 
+	has_paper_trail
 
 end
