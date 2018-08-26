@@ -24,11 +24,7 @@
       <th>Prod descrip</th>
       <th>Fecha vence</th>
       <th>Cantidad</th>
-      <th>Precio compra</th>
-      <th>Precio venta</th>
-      <th>Prod active</th>
       <th>Marca</th>
-      <th>Proveedor</th>
       <th>Seccion</th>
       <th>Tipo med</th>
       <th colspan="3"></th>
@@ -42,13 +38,9 @@
         <td><%= producto.prod_descrip %></td>
         <td><%= producto.fecha_vence %></td>
         <td><%= producto.cantidad %></td>
-        <td><%= producto.precio_compra %></td>
-        <td><%= producto.precio_venta %></td>
-        <td><%= producto.prod_active %></td>
-        <td><%= producto.marca %></td>
-        <td><%= producto.proveedor %></td>
-        <td><%= producto.seccion %></td>
-        <td><%= producto.tipo_med %></td>
+        <td><%= producto.marca.marca_descrip %></td>
+        <td><%= producto.seccion.sec_descrip %></td>
+        <td><%= producto.tipo_med.tipo_descrip %></td>
         <td><%= link_to 'Mostrar', producto %></td>
         <td><%= link_to 'Editar', edit_producto_path(producto) %></td>
         <td><%= link_to 'Eliminar', producto, method: :delete, data: { confirm: 'Estás seguro?' } %></td>

@@ -1,9 +1,6 @@
  <body>
     <div class="page login-page">
       
-             
-
-
  <section class="tables">   
             <div class="container-fluid">
               <div class="row">
@@ -14,7 +11,7 @@
                     
                     <div class="card-body">
                       <div class="table-responsive">  
-                        <table class="table table-striped">
+                        <table class="table table-hover">
 
 <thead>
     <tr>
@@ -23,13 +20,15 @@
   </thead>
 
   <tbody>
-    <% @productos.each do |producto| %>
-      <% if producto.fecha_vence == Date.today %>
-      <tr>
-        <td><%= producto.codigo %></td>
-        <td><%= producto.prod_descrip %></td>
-        <td><%= producto.fecha_vence %></td>
-        <td><%= producto.cantidad %></td>
+    <% @productos.each do |prod| %>
+      <% if prod.fecha_vence == Date.today %>
+      <tr class="danger">
+        <td><%= prod.codigo %></td>
+        <td><%= prod.prod_descrip %></td>
+        <td><%= prod.fecha_vence %></td>
+        <td><%= prod.cantidad %></td>
+        <td><%= link_to 'Mostrar', prod %></td>
+
       </tr>
     <% end %>
     <% end %>
@@ -46,10 +45,12 @@
     <% @productos.each do |prod| %>
     <% if prod.cantidad <=  1  %>
       <tr>
-        <td><%= prod.codigo %></td>
+        <td class="danger"><%= prod.codigo %></td>
         <td><%= prod.prod_descrip %></td>
         <td><%= prod.fecha_vence %></td>
         <td><%= prod.cantidad %></td>
+        <td><%= button_to 'Mostrar', prod %></td>
+
       </tr>
     <% end %>
     <% end %>

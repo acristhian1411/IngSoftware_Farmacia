@@ -13,10 +13,10 @@ class ProductosController < ApplicationController
        @productos = Producto.where("prod_active != false")
     end
   
-    @tipo_med = TipoMed.all
-    @proveedor = Proveedor.all
-    @marca = Marca.all
-    @seccion = Seccion.all
+    @tipo_med = TipoMed.where("tipo_active != false")
+    @proveedor = Proveedor.where("prov_active != false")
+    @marca = Marca.where("marca_active != false")
+    @seccion = Seccion.where("seccion_active != false")
 
   end
 
@@ -29,28 +29,28 @@ class ProductosController < ApplicationController
   # GET /productos/new
   def new
     @producto = Producto.new
-    @tipo_med = TipoMed.all
-    @proveedor = Proveedor.all
-    @marca = Marca.all
-    @seccion = Seccion.all
+    @tipo_med = TipoMed.where("tipo_active != false")
+    @proveedor = Proveedor.where("prov_active != false")
+    @marca = Marca.where("marca_active != false")
+    @seccion = Seccion.where("seccion_active != false")
   end
 
   # GET /productos/1/edit
   def edit
-    @tipo_med = TipoMed.all
-    @proveedor = Proveedor.all
-    @marca = Marca.all
-    @seccion = Seccion.all
+    @tipo_med = TipoMed.where("tipo_active != false")
+    @proveedor = Proveedor.where("prov_active != false")
+    @marca = Marca.where("marca_active != false")
+    @seccion = Seccion.where("seccion_active != false")
   end
 
   # POST /productos
   # POST /productos.json
   def create
     @producto = Producto.new(producto_params)
-    @tipo_med = TipoMed.all
-    @proveedor = Proveedor.all
-    @marca = Marca.all
-    @seccion = Seccion.all
+    @tipo_med = TipoMed.where("tipo_active != false")
+    @proveedor = Proveedor.where("prov_active != false")
+    @marca = Marca.where("marca_active != false")
+    @seccion = Seccion.where("seccion_active != false")
     respond_to do |format|
       if @producto.save
         format.html { redirect_to @producto, notice: 'Producto fue creado con éxito.' }
@@ -65,10 +65,10 @@ class ProductosController < ApplicationController
   # PATCH/PUT /productos/1
   # PATCH/PUT /productos/1.json
   def update
-    @tipo_med = TipoMed.all
-    @proveedor = Proveedor.all
-    @marca = Marca.all
-    @seccion = Seccion.all
+    @tipo_med = TipoMed.where("tipo_active != false")
+    @proveedor = Proveedor.where("prov_active != false")
+    @marca = Marca.where("marca_active != false")
+    @seccion = Seccion.where("seccion_active != false")
 
 
     respond_to do |format|
