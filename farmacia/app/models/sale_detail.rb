@@ -2,6 +2,8 @@ class SaleDetail < ActiveRecord::Base
 	belongs_to :sale
 	belongs_to :producto
 
+	has_paper_trail
+	
 	validates :producto_id, presence: true
 	validates :cantidad, presence: true
 	validates :precio, presence: true

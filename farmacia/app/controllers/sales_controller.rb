@@ -1,6 +1,6 @@
 class SalesController < ApplicationController
   before_action :set_sale, only: [:show, :edit, :update, :destroy]
-  has_paper_trail
+  before_action : set_paper_trail_whodunnit
   # GET /sales
   # GET /sales.json
   def index

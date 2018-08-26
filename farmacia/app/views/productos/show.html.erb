@@ -37,22 +37,22 @@
 
 <p>
   <strong>Marca:</strong>
-  <%= @producto.marca %>
+  <%= @producto.marca.marca_descrip %>
 </p>
 
 <p>
   <strong>Proveedor:</strong>
-  <%= @producto.proveedor %>
+  <%= @producto.proveedor.razon_social %>
 </p>
 
 <p>
   <strong>Seccion:</strong>
-  <%= @producto.seccion %>
+  <%= @producto.seccion.sec_descrip %>
 </p>
 
 <p>
   <strong>Tipo med:</strong>
-  <%= @producto.tipo_med %>
+  <%= @producto.tipo_med.tipo_descrip %>
 </p>
 
 <%= link_to 'Editar', edit_producto_path(@producto) %> |
