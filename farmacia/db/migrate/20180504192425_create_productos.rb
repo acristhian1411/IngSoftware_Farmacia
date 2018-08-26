@@ -8,7 +8,6 @@ class CreateProductos < ActiveRecord::Migration
       t.float :precio_compra
       t.float :precio_venta
       t.boolean :prod_active
-      t.references :droga, index: true, foreign_key: true
       t.references :marca, index: true, foreign_key: true
       t.references :proveedor, index: true, foreign_key: true
       t.references :seccion, index: true, foreign_key: true
