@@ -5,6 +5,10 @@ class Producto < ActiveRecord::Base
   belongs_to :seccion
   belongs_to :tipo_med
 
-
+  has_paper_trail(
+    meta: {
+      author_id: :author_id, # model attribute
+       }
+  )
 
 end
