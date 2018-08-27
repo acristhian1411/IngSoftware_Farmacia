@@ -10,8 +10,9 @@
             devise_parameter_sanitizer.for(:sign_up) { |u| u.permit(:email, :password, :name, :admin) }
             devise_parameter_sanitizer.for(:account_update) { |u| u.permit(:name, :email, :password, :current_password) }
         end
+ 
  def user_for_paper_trail
-    admin_user_signed_in? ? current_admin_user.try(:id) : 'Unknown user'
+   user_signed_in? ? current_user.try(:id) : 'Unknown user'
   end
 
 end
