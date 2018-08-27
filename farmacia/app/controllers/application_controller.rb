@@ -15,4 +15,13 @@
     user_signed_in? ? current_user.try(:id) : 'Unknown user'
   end
 
+
+
+ 
+
+  def info_for_paper_trail
+    { user_id: current_user.id } if user_signed_in?
+  end
+
 end
+# config/initializers/paper_trail.rb
