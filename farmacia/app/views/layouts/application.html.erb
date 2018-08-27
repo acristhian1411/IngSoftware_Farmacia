@@ -76,9 +76,9 @@
           <!-- Sidebar Navidation Menus--><span class="heading">Menus</span>
           <ul class="list-unstyled">
                    
-                
+      <li class='<%= active_for(controller: "home") %>'><%= link_to 'Inicio', :action =>:index %></li>    
 
-       <li class='<%= active_for(controller: "clientes") %>'><%= link_to 'Clientes', clientes_path %></li>
+      <li class='<%= active_for(controller: "clientes") %>'><%= link_to 'Clientes', clientes_path %></li>
      
       <li class='<%= active_for(controller: "marcas") %>'><%= link_to 'Marcas', marcas_path %></li>
        
