@@ -1,27 +1,17 @@
 Rails.application.routes.draw do
 
-
+  
+  devise_for :users
+  resources :users
   resources :sale_details
   resources :sales
-  get 'user/index'
+  
 
-  get 'user/new'
-
-  post 'user/create'
-
-  get 'user/edit'
-
-  patch 'user/update'
-
-  delete 'user/destroy'
-
-  get 'user/show'
-
-  devise_for :users
   resources :clientes
   resources :productos
   resources :proveedors
   resources :tipo_meds
+  
   get 'home/index'
 
   resources :seccions
