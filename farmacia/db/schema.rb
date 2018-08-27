@@ -11,11 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 20180826210729) do
-=======
-ActiveRecord::Schema.define(version: 20180826205011) do
->>>>>>> c9b49b03019578934785ca30f552a0cb190fd83b
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -30,23 +26,6 @@ ActiveRecord::Schema.define(version: 20180826205011) do
     t.datetime "created_at",     null: false
     t.datetime "updated_at",     null: false
   end
-
-  create_table "drogas", force: :cascade do |t|
-    t.string   "droga_descrip"
-    t.boolean  "droga_active"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
-  end
-
-  create_table "drogas_x_productos", force: :cascade do |t|
-    t.integer  "droga_id"
-    t.integer  "producto_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
-  end
-
-  add_index "drogas_x_productos", ["droga_id"], name: "index_drogas_x_productos_on_droga_id", using: :btree
-  add_index "drogas_x_productos", ["producto_id"], name: "index_drogas_x_productos_on_producto_id", using: :btree
 
   create_table "marcas", force: :cascade do |t|
     t.string   "marca_descrip"
@@ -154,8 +133,6 @@ ActiveRecord::Schema.define(version: 20180826205011) do
   add_index "versions", ["item_type", "item_id"], name: "index_versions_on_item_type_and_item_id", using: :btree
   add_index "versions", ["user_id"], name: "index_versions_on_user_id", using: :btree
 
-  add_foreign_key "drogas_x_productos", "drogas"
-  add_foreign_key "drogas_x_productos", "productos"
   add_foreign_key "productos", "marcas"
   add_foreign_key "productos", "proveedors"
   add_foreign_key "productos", "seccions"

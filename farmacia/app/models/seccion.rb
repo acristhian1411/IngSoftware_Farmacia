@@ -8,9 +8,4 @@ class Seccion < ActiveRecord::Base
       user_id: :user_id, # model attribute
        }
   )
-<<<<<<< HEAD
-=======
-
->>>>>>> a3e53cc6430ea474f8044f00a24d4d92747e5e46
-
 end

@@ -1,9 +1,10 @@
 class SalesController < ApplicationController
   before_action :set_sale, only: [:show, :edit, :update, :destroy]
-  before_action : set_paper_trail_whodunnit
+  before_action :set_paper_trail_whodunnit
   # GET /sales
   # GET /sales.json
   def index
+    @sales = Sale.all
     unsaved_sales = Sale.where(state: "draft", user: current_user)
     unsaved_sales.each do |sale|
     sale.destroy
