@@ -47,9 +47,7 @@
             <% if current_user %> 
            </span></a></li>
               </ul>
-
-
-              
+            
             </div>
           </div>
         </nav>
@@ -76,11 +74,13 @@
           <!-- Sidebar Navidation Menus--><span class="heading">Menus</span>
           <ul class="list-unstyled">
                    
-      <li class='<%= active_for(controller: "home") %>'><%= link_to 'Inicio', :action =>:index %></li>    
+      <li class='<%= active_for(controller: "home") %>'><%= link_to 'Inicio', root_path %></li>    
 
       <li class='<%= active_for(controller: "clientes") %>'><%= link_to 'Clientes', clientes_path %></li>
      
       <li class='<%= active_for(controller: "marcas") %>'><%= link_to 'Marcas', marcas_path %></li>
+       
+      <li class='<%= active_for(controller: "sales") %>'><%= link_to 'Ventas', sales_path %></li>
        
        <li class='<%= active_for(controller: "productos") %>'><%= link_to 'Productos', productos_path %></li>
       
@@ -89,7 +89,10 @@
       <li class='<%= active_for(controller: "tipo_meds") %>'><%= link_to 'Tipo de medicamentos', tipo_meds_path %></li>
       
       <li class='<%= active_for(controller: "proveedors_meds") %>'><%= link_to 'Proveedores', proveedors_path %></li>
+
+      <% if current_user.admin == true %>
       <li><%= link_to 'Usuarios', users_path %></li>
+      <% end %>
                     <% end %>
                     <li>           <% if current_user %>
 

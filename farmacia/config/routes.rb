@@ -1,21 +1,16 @@
 Rails.application.routes.draw do
-
-  
+ 
   devise_for :users
   resources :users
   resources :sale_details
   resources :sales
-  
-
   resources :clientes
   resources :productos
   resources :proveedors
   resources :tipo_meds
-  
-  get 'home/index'
-
   resources :seccions
   resources :marcas
+  get 'home/index'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

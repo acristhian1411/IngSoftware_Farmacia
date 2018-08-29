@@ -12,10 +12,14 @@
         end
  
  def user_for_paper_trail
+<<<<<<< HEAD
 
     user_signed_in? ? current_user.try(:id) : 'Unknown user'
 
    user_signed_in? ? current_user.try(:id) : 'Unknown user'
+=======
+    user_signed_in? ? current_user.try(:id) : 'Unknown user'
+>>>>>>> 9c3155f558778d8f22f4c9138a5d8f8674d4400f
   end
 
 

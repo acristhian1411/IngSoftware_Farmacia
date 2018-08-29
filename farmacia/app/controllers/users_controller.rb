@@ -1,12 +1,13 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
-
+  before_action :authenticate_user!
+  before_action :set_paper_trail_whodunnit
+ 
   # GET /users
   # GET /users.json
   def index
     @users = User.all
   end
-
   # GET /users/1
   # GET /users/1.json
   def show
@@ -71,4 +72,6 @@ class UsersController < ApplicationController
     def user_params
       params.require(:user).permit(:admin, :name)
     end
+
+
 end

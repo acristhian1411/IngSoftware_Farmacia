@@ -5,7 +5,10 @@ class Proveedor < ActiveRecord::Base
 	validates :direccion, presence: true
 	validates :telefono, presence: true
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 9c3155f558778d8f22f4c9138a5d8f8674d4400f
 	has_paper_trail(
     meta: {
       user_id: :user_id, # model attribute
