@@ -11,20 +11,9 @@
             devise_parameter_sanitizer.for(:account_update) { |u| u.permit(:name, :email, :password, :current_password) }
         end
  
- def user_for_paper_trail
-<<<<<<< HEAD
-
+  def user_for_paper_trail
     user_signed_in? ? current_user.try(:id) : 'Unknown user'
-
-   user_signed_in? ? current_user.try(:id) : 'Unknown user'
-=======
-    user_signed_in? ? current_user.try(:id) : 'Unknown user'
->>>>>>> 9c3155f558778d8f22f4c9138a5d8f8674d4400f
   end
-
-
-
- 
 
   def info_for_paper_trail
     { user_id: current_user.id } if user_signed_in?

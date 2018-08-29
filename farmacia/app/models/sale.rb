@@ -3,7 +3,11 @@ class Sale < ActiveRecord::Base
 	has_many :productos, through: :sale_details
 	belongs_to :user
 
-	has_paper_trail
+	has_paper_trail(
+	    meta: {
+	      user_id: :user_id, # model attribute
+	       }
+  	)
 	
 	validates :number, presence: true
 	validates :date, presence: true

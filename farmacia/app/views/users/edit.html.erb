@@ -1,3 +1,5 @@
+<br>
+<% if current_user.admin == true %>
 <section class="charts">
             <div class="container-fluid">
 
@@ -6,3 +8,8 @@
 <%= link_to 'mostrar', @user %> |
 <%= link_to 'Atras', users_path %>
 </section>
+<% else %>
+	<div class="card-header d-flex align-items-center">
+	<h3 class="h1"> ACCESO DENEADO </h3>
+	</div>
+<%end%>

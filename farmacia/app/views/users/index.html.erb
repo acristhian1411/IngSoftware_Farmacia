@@ -1,12 +1,5 @@
-<p id="notice"><%= notice %></p>
-
-<<<<<<< HEAD
-
-
-
 <br>
-
-
+<% if current_user.admin == true%>
 <section class="tables">   
             <div class="container-fluid">
               <div class="row">
@@ -15,31 +8,36 @@
                    
                   
                     <div class="card-header d-flex align-items-center">
-                      <h3 class="h4">Lista Usuarios</h3>
+                      <h3 class="h4"> Usuarios </h3>
                     </div>
                     <div class="card-body">
                       <div class="table-responsive">  
-                        <table class="table table-striped">
-                          <thead>
-                            <tr>
-                              <th>Admin</th>
-                              <th>Nombre</th>
-                              <th colspan="3"></th>
-                            </tr>
-                          </thead>
-                          <tbody>
-                            <% @users.each do |user| %>
-                          <tr>
-                            <td><%= user.admin %></td>
-                            <td><%= user.name %></td>
-                            <td><%= link_to 'Mostrar', user %></td>
-                            <td><%= link_to 'Editar', edit_user_path(user) %></td>
-                            <td><%= link_to 'Eliminar', user, method: :delete, data: { confirm: 'Estás seguro?' } %></td>
-                          </tr>
+                          <table class="table table-hover" >
+                            <thead>
+                              <tr>
+                                <th>Nombre</th>
+                                <th>Correo</th>
+                                <th>Administrador</th>
+                                <th colspan="3"></th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <% @users.each do |user| %>
+                                <tr>
+                                  <td><%= user.name %></td>
+                                  <td><%= user.email %></td>
+                                  <% if user.admin == true%>
+                                  <td>Es administrador</td>
+                                  <% else %>
+                                  <td>No es administrador</td>
+                                  <% end %>
+                                  <td><%= link_to 'Mostrar', user %></td>
+                                  <td><%= link_to 'Editar', edit_user_path(user) %></td>
+                                  <td><%= link_to 'Eliminar', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                                </tr>
                               <% end %>
-                          </tbody> 
-                        </table>
-                        <%= link_to 'Nuevo Usuario', new_user_path %>
+                            </tbody>
+                          </table>
                       </div>
                     </div>
                   </div>
@@ -51,37 +49,13 @@
               </div>
             </div> 
           </section>
-=======
-<h1>Lista de Usuarios</h1>
 
-<table class="table table-hover" >
-  <thead>
-    <tr>
-      <th>Nombre</th>
-      <th>Correo</th>
-      <th>Administrador</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+          <% else %>
 
-  <tbody>
-    <% @users.each do |user| %>
-      <tr>
-        <td><%= user.name %></td>
-        <td><%= user.email %></td>
-        <% if user.admin == true%>
-        <td>Es administrador</td>
-        <% else %>
-        <td>No es administrador</td>
-        <% end %>
-        <td><%= link_to 'Show', user %></td>
-        <td><%= link_to 'Edit', edit_user_path(user) %></td>
-        <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
 
-<br>
+                    <div class="card-header d-flex align-items-center">
+                      <h3 class="h1"> ACCESO DENEADO </h3>
+                    </div>
 
->>>>>>> 9c3155f558778d8f22f4c9138a5d8f8674d4400f
+                    <% end %>
+
