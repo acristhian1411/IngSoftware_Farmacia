@@ -13,5 +13,9 @@
 //= require jquery
 //= require jquery_ujs
 //= require bootstrap-sprockets
+//= require bootstrap-modal
+//= require bootstrap-modalmanager
+//= require_relative select2.js
 //= require turbolinks
 //= require_tree .
+

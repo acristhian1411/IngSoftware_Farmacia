@@ -1,0 +1,12 @@
+<% @compra.compra_detalles.each do |detail| %>
+  <tr>
+    <td><%= detail.number %></td>
+    <td><%= detail.producto.prod_descrip %></td>
+    <td class="text-right"><%= detail.cantidad %></td>
+    <td class="text-right"><%= number_to_currency(detail.precio) %></td>
+    <td class="text-right"><%= number_to_currency(detail.subtotal) %></td>
+    <% if show_actions %>
+      <td><%= link_to "Eliminar", compra_compra_detalles_path(detail.compra.id, detail.id), method: :delete, remote: true %> </td>
+    <% end %>
+  </tr>
+<% end %>

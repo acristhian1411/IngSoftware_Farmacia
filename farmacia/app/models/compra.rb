@@ -1,8 +1,8 @@
-class Sale < ActiveRecord::Base
-	has_many :sale_details, inverse_of: :sale, dependent: :destroy
-	has_many :productos, through: :sale_details
+class Compra < ActiveRecord::Base
+	has_many :compra_detalles, inverse_of: :compras, dependent: :destroy
+	has_many :productos, through: :compra_detalles
 	belongs_to :user
-	belongs_to :cliente
+	belongs_to :proveedor
 	
 
 	has_paper_trail(
@@ -15,13 +15,13 @@ class Sale < ActiveRecord::Base
 	validates :date, presence: true
 
 
-	accepts_nested_attributes_for :sale_details, reject_if: :sale_detail_rejectable?,
+	accepts_nested_attributes_for :compra_detalles, reject_if: :compra_detalles_rejectable?,
 									allow_destroy: true
 
 	enum state: [:draft, :confirmed]
 
 	def total
-		details = self.sale_details
+		details = self.compra_detalles
 
 		total = 0.0
 		details.flat_map do |d|
@@ -36,3 +36,4 @@ class Sale < ActiveRecord::Base
 			att[:producto_id].blank? || att[:cantidad].blank? || att[:precio].blank? || att[:cantidad].to_f <= 0 || att[:precio].to_f <= 0
 		end
 end
+

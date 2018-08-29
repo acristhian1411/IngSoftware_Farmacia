@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
  
+  resources :compra_detalles
+  resources :compras
   devise_for :users
   resources :users
   resources :sale_details

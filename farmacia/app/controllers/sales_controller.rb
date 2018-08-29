@@ -4,6 +4,7 @@ class SalesController < ApplicationController
   # GET /sales
   # GET /sales.json
   def index
+    @clientes = Cliente.where("cliente_active != false")
     @sales = Sale.all
     unsaved_sales = Sale.where(state: "draft", user: current_user)
     unsaved_sales.each do |sale|
@@ -14,10 +15,12 @@ class SalesController < ApplicationController
   # GET /sales/1
   # GET /sales/1.json
   def show
+    @clientes = Cliente.where("cliente_active != false")
   end
 
   # GET /sales/new
   def new
+    @clientes = Cliente.where("cliente_active != false")
     last_sale = Sale.where(state: "confirmed", user: current_user).maximum('number')
     number =  (last_sale != nil) ? last_sale + 1 : 1
     @sale = Sale.create(date: Date::current, number: number, state: "draft", user: current_user)
@@ -27,16 +30,19 @@ class SalesController < ApplicationController
 
   # GET /sales/1/edit
   def edit
+    @clientes = Cliente.where("cliente_active != false")
   end
 
   # POST /sales
   # POST /sales.json
   def create
+    @clientes = Cliente.where("cliente_active != false")
   end
 
   # PATCH/PUT /sales/1
   # PATCH/PUT /sales/1.json
   def update
+    @clientes = Cliente.where("cliente_active != false")
     @sale.confirmed!
     respond_to do |format|
       if @sale.update(sale_params)
@@ -67,6 +73,6 @@ class SalesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def sale_params
-      params.require(:sale).permit(:number, :date, :user_id, sale_details_attributes: [:id, :sale_id, :producto_id, :number, :cantidad, :precio, :_destroy] )
+      params.require(:sale).permit(:number, :date, :user_id, :cliente_id, sale_details_attributes: [:id, :sale_id, :producto_id, :number, :cantidad, :precio, :_destroy] )
     end
 end

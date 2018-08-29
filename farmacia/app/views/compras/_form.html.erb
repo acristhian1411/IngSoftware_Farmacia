@@ -1,15 +1,14 @@
-
-<div class="container-fluid" id="sale-form">
+<div class="container-fluid" id="compra-form">
   <div class="row">
 
     <div class="panel-body">
-      <%= form_for(@sale) do |f| %>
-        <% if @sale.errors.any? %>
+      <%= form_for(@compra) do |f| %>
+        <% if @compra.errors.any? %>
           <div id="error_explanation">
-            <h2><%= pluralize(@sale.errors.count, "error") %> prohibited this sale from being saved:</h2>
+            <h2><%= pluralize(@compra.errors.count, "error") %> prohibited this sale from being saved:</h2>
 
             <ul>
-            <% @sale.errors.full_messages.each do |message| %>
+            <% @compra.errors.full_messages.each do |message| %>
               <li><%= message %></li>
             <% end %>
             </ul>
@@ -39,42 +38,42 @@
             </div>
           </div>
 
-          <div class="col-xs-6 col-xs-offset-1 col-md-4 col-md-offset-4">
+          <div class="col-xs-8 col-xs-offset-2 col-md-8 col-md-offset-8">
             <div class="form-group">
               <div class="col-xs-4 col-md-4 text-right">
-                <%= f.label :cliente_id, "Cliente" %>
+                <%= f.label :proveedor_id, "Proveedor" %>
               </div>
               <div class="col-xs-8 col-md-6 text-right">
-              <%= select_tag"sale[cliente_id]",  options_for_select(@clientes.map{|c|["#{c.nombre}", c.id]}), id: "cliente_id" %>                </div>
+              <%= select_tag"compra[proveedor_id]",  options_for_select(@proveedor.map{|p|["#{p.razon_social}", p.id]}), id: "proveedor_id" %>                
+            </div>
             </div>
           </div>
 
           
-
         </div>
         <hr>
         <br>
         <div class="panel-body" id="sale-details">
-          <%= (@sale.sale_details.count > 0) ? render(partial: 'table', locals: { sale: @sale, show_actions: true }) : 'No hay detalles cargados' %>
+          <%= (@compra.compra_detalles.count > 0) ? render(partial: 'table', locals: { compra: @compra, show_actions: true }) : 'No hay detalles cargados' %>
         </div>
         <div class="row">
           <div class="col-xs-2 col-xs-offset-5 text-center">
-            <%= link_to "Nuevo detalle", new_sale_detail_path(sale_id: @sale.id), remote: true, class: "btn btn-info" %>
+            <%= link_to "Nuevo detalle", new_compra_detalle_path(compra_id: @compra.id), remote: true, class: "btn btn-info" %>
           </div>
         </div>
         <br>
         <% message = (action_name == 'edit') ? "Volver" : "Aceptar" %>
         <%= f.submit message, class: "btn btn-success" %>
       <% end %>
-      <div class="modal fade" id="new-detail-modal" title="Modal"></div>
+      <div class="modal fade" id="nuevo-detalle-modal" title="Modal"></div>
     </div>
   </div>
 </div>
 
 <script>
                   $(document).ready(function() {
-      $('select#cliente_id').select2({
-        placeholder: "Elije un cliente",
+      $('select#proveedor_id').select2({
+        placeholder: "Elije un proveedor",
         allowClear: true
       });
     });

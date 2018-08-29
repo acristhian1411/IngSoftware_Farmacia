@@ -1,0 +1,31 @@
+
+<%= form_for :compra_detalle do |f| %>
+  <div class="nested-fields row">
+    <div class="col-xs-5">
+      <div class="form-group">
+          <%= f.label :producto_id, class: "sr-only" %>
+          <%= f.text_field :producto, autofocus: true, placeholder: "Artículo", class: "form-control" %>
+          <%= f.hidden_field :producto_id %>
+      </div>
+    </div>
+    <div class="col-xs-2">
+      <div class="form-group">
+          <%= f.label :cantidad, class: "sr-only" %>
+          <%= f.text_field :cantidad, placeholder: "Cant.", class: "form-control" %>
+      </div>
+    </div>
+    <div class="col-xs-2">
+      <div class="form-group">
+          <%= f.label :precio, class: "sr-only" %>
+          <%= f.text_field :precio, placeholder: "Precio", class: "form-control" %>
+      </div>
+    </div>
+    <div class="col-xs-2">
+      <div class="form-group">
+          <%= f.label :subtotal, class: "sr-only" %>
+          <%= f.text_field :subtotal, placeholder: "0", class: "form-control", disabled: true %>
+      </div>
+    </div>
+  </div>
+  <%= f.submit "Aceptar", class: "btn btn-success", "data-dismiss": "modal" %>
+<% end %>

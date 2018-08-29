@@ -21,7 +21,6 @@ gem 'bootstrap-sass'
 #modal
 gem 'bootstrap-modal-rails'
 
-gem 'autoprefixer-rails'
 
 #gema para select
 gem "select2-rails"

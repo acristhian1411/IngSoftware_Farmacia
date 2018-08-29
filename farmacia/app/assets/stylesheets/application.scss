@@ -12,8 +12,10 @@
  *
  *= require_tree .
  *= require_self
+ *= require bootstrap-modal-bs3patch
+ *= require bootstrap-modal
+ *= require_relative select2.css
  */
  @import "bootstrap-sprockets";
  @import "bootstrap";
- 
- 
+

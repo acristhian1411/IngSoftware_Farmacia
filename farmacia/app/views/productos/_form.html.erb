@@ -55,22 +55,22 @@
 
   <div class="field">
     <%= f.label :marca_id %><br>
-    <%= select_tag("producto[marca_id]",  options_for_select(@marca.map{|m|["#{m.marca_descrip}", m.id]})) %>  
+    <%= select_tag"producto[marca_id]",  options_for_select(@marca.map{|m|["#{m.marca_descrip}", m.id]}), id:"marca_id" %>  
   </div>
 
   <div class="field">
     <%= f.label :proveedor_id %><br>
-   <%= select_tag("producto[proveedor_id]",  options_for_select(@proveedor.map{|c|["#{c.razon_social}", c.id]})) %>
+   <%= select_tag"producto[proveedor_id]",  options_for_select(@proveedor.map{|c|["#{c.razon_social}", c.id]}), id:"proveedor_id" %>
   </div>
 
   <div class="field">
     <%= f.label :seccion_id %><br>
-    <%= select_tag("producto[seccion_id]",  options_for_select(@seccion.map{|c|["#{c.sec_descrip}", c.id]})) %>
+    <%= select_tag"producto[seccion_id]",  options_for_select(@seccion.map{|c|["#{c.sec_descrip}", c.id]}), id:"seccion_id" %>
   </div>
 
   <div class="field">
     <%= f.label :tipo_med_id %><br>
-    <%= select_tag("producto[tipo_med_id]",  options_for_select(@tipo_med.map{|c|["#{c.tipo_descrip}", c.id]})) %>
+    <%= select_tag"producto[tipo_med_id]",  options_for_select(@tipo_med.map{|c|["#{c.tipo_descrip}", c.id]}), id:"tipo_med_id" %>
   </div>
 
   <div class="actions">
@@ -83,14 +83,19 @@
 <% end %>
   </div>
 
-<script type="text/javascript">
-          $(document).ready(function() {
-            console.log("hola")
-          $('select#producto_marca_id').select2({
-            placeholder: "Marca  ",
-            allowClear: true
-          });
-        });
+<script>
+              $(document).ready(function() {
+                  $('select#marca_id').select2();
+                });
+              $(document).ready(function() {
+                  $('select#proveedor_id').select2();
+                });
+              $(document).ready(function() {
+                  $('select#seccion_id').select2();
+                });
+              $(document).ready(function() {
+                  $('select#tipo_med_id').select2();
+                });
 </script>
 
 </div>
