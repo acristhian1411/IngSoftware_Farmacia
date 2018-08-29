@@ -18,6 +18,9 @@ gem 'paper_trail'
 #gemas de bootstrap
 gem 'bootstrap-sass'
 
+#modal
+gem 'bootstrap-modal-rails'
+
 gem 'autoprefixer-rails'
 
 #gema para select
