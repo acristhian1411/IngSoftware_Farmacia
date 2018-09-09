@@ -45,7 +45,7 @@
                 <%= f.label :cliente_id, "Cliente" %>
               </div>
               <div class="col-xs-8 col-md-6 text-right">
-              <%= select_tag"sale[cliente_id]",  options_for_select(@clientes.map{|c|["#{c.nombre}", c.id]}), id: "cliente_id" %>                </div>
+              <%= select_tag"sale[cliente_id]",  options_for_select(@clientes.map{|c|["#{c.nombre}", c.id]}), id: "cliente_id", placeholder: "Clientes" %>                </div>
             </div>
           </div>
 
@@ -59,14 +59,18 @@
         </div>
         <div class="row">
           <div class="col-xs-2 col-xs-offset-5 text-center">
-            <%= link_to "Nuevo detalle", new_sale_detail_path(sale_id: @sale.id), remote: true, class: "btn btn-info" %>
+
+            <%= render 'sale_details/form' %>
+
+            <%# link_to "Nuevo detalle", new_sale_detail_path(sale_id: @sale.id), remote: true, class: "btn btn-info" %>
           </div>
         </div>
         <br>
         <% message = (action_name == 'edit') ? "Volver" : "Aceptar" %>
         <%= f.submit message, class: "btn btn-success" %>
       <% end %>
-      <div class="modal fade" id="new-detail-modal" title="Modal"></div>
+      <div class="modal fade" id="new-detail-modal" title="Modal">
+      </div>
     </div>
   </div>
 </div>

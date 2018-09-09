@@ -7,10 +7,16 @@ class MarcasController < ApplicationController
   def index
     if current_user.admin != false
         @marcas = Marca.all
+        if params[:marca_descrip].present?
+            @marcas = @marcas.where("marca_descrip ILIKE ?", "%#{params[:marca_descrip]}%")
+        end
     end
 
     if current_user.admin != true
-       @marcas = Marca.where("marca_active != false")
+        @marcas = Marca.where("marca_active != false")
+        if params[:marca_descrip].present?
+            @marcas = @marcas.where("marca_descrip ILIKE ?", "%#{params[:marca_descrip]}%")
+        end
     end
   end
 

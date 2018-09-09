@@ -7,6 +7,9 @@ class UsersController < ApplicationController
   # GET /users.json
   def index
     @users = User.all
+    if params[:name].present?
+        @users = @users.where("name ILIKE ?", "%#{params[:name]}%")
+    end
   end
   # GET /users/1
   # GET /users/1.json

@@ -7,10 +7,16 @@ class SeccionsController < ApplicationController
   def index
     if current_user.admin != false
         @seccions = Seccion.all
+        if params[:sec_descrip].present?
+            @seccions = @seccions.where("sec_descrip ILIKE ?", "%#{params[:sec_descrip]}%")
+        end
     end
 
     if current_user.admin != true
        @seccions = Seccion.where("seccion_active != false")
+       if params[:sec_descrip].present?
+            @seccions = @seccions.where("sec_descrip ILIKE ?", "%#{params[:sec_descrip]}%")
+        end
     end
   end
 

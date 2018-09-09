@@ -16,6 +16,7 @@
 //= require bootstrap-modal
 //= require bootstrap-modalmanager
 //= require_relative select2.js
+//= require_relative sale_details.js
 //= require turbolinks
 //= require_tree .
 

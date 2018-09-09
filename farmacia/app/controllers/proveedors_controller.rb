@@ -7,10 +7,16 @@ class ProveedorsController < ApplicationController
   def index
     if current_user.admin != false
         @proveedors = Proveedor.all
+        if params[:razon_social].present?
+            @proveedors = @proveedors.where("razon_social ILIKE ?", "%#{params[:razon_social]}%")
+        end
     end
 
     if current_user.admin != true
        @proveedors = Proveedor.where("prov_active != false")
+        if params[:razon_social].present?
+            @proveedors = @proveedors.where("razon_social ILIKE ?", "%#{params[:razon_social]}%")
+        end
     end
   end
 

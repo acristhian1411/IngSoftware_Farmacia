@@ -8,10 +8,16 @@ class ClientesController < ApplicationController
   def index
     if current_user.admin != false
         @clientes = Cliente.all
-    end
 
+          if params[:nombre].present?
+            @clientes = @clientes.where("nombre ILIKE ?", "%#{params[:nombre]}%")
+          end
+    end
     if current_user.admin != true
         @clientes = Cliente.where("cliente_active != false")
+        if params[:nombre].present?
+            @clientes = @clientes.where("nombre ILIKE ?", "%#{params[:nombre]}%")
+        end
     end
   end
 

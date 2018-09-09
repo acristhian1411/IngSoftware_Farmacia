@@ -7,10 +7,16 @@ class ProductosController < ApplicationController
   def index
     if current_user.admin != false
         @productos = Producto.all
+        if params[:prod_descrip].present?
+            @productos = @productos.where("prod_descrip ILIKE ?", "%#{params[:prod_descrip]}%")
+        end 
     end
 
     if current_user.admin != true
-       @productos = Producto.where("prod_active != false")
+        @productos = Producto.where("prod_active != false")
+        if params[:prod_descrip].present?
+            @productos = @productos.where("prod_descrip ILIKE ?", "%#{params[:prod_descrip]}%")
+        end
     end
   
     @tipo_med = TipoMed.where("tipo_active != false")

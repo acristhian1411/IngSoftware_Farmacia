@@ -7,10 +7,17 @@ class TipoMedsController < ApplicationController
   def index
     if current_user.admin != false
         @tipo_meds = TipoMed.all
+        if params[:tipo_descrip].present?
+            @tipo_meds = @tipo_meds.where("tipo_descrip ILIKE ?", "%#{params[:tipo_descrip]}%")
+        end
     end
 
     if current_user.admin != true
-       @tipo_meds = TipoMed.where("tipo_active != false")
+      @tipo_meds = TipoMed.where("tipo_active != false")
+      if params[:tipo_descrip].present?
+        @tipo_meds = @tipo_meds.where("tipo_descrip ILIKE ?", "%#{params[:tipo_descrip]}%")
+      end
+
     end
   end
 
