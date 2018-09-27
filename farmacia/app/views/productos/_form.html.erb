@@ -48,10 +48,12 @@
     <%= f.text_field :precio_venta %>
   </div>
 
+<% if current_user.admin == true %>
   <div class="field">
     <%= f.label :prod_active %><br>
     <%= f.check_box :prod_active %>
   </div>
+<% end %>
 
   <div class="field">
     <%= f.label :marca_id %><br>

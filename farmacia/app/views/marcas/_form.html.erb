@@ -29,10 +29,14 @@
     <%= f.label :marca_descrip %><br>
     <%= f.text_field :marca_descrip %>
   </div>
+
+<% if current_user.admin == true %>
   <div class="field">
     <%= f.label :marca_active %><br>
     <%= f.check_box :marca_active %>
   </div>
+<% end %>
+
   <div class="actions">
     <%= f.submit %>
   </div>

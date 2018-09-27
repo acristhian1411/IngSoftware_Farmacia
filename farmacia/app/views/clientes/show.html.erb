@@ -25,10 +25,12 @@
   <%= @cliente.telefono %>
 </p>
 
+<% if current_user.admin == true %>
 <p>
   <strong>Cliente active:</strong>
   <%= @cliente.cliente_active %>
 </p>
+<% end %>
 
 <%= link_to 'Editar', edit_cliente_path(@cliente) %> |
 <%= link_to 'Atras', clientes_path %>

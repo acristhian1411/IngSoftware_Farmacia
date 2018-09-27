@@ -18,6 +18,9 @@ gem 'paper_trail'
 #gemas de bootstrap
 gem 'bootstrap-sass'
 
+#sugerencias
+gem 'twitter-typeahead-rails'
+
 #modal
 gem 'bootstrap-modal-rails'
 

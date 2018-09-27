@@ -5,10 +5,12 @@
   <%= @marca.marca_descrip %>
 </p>
 
+<% if current_user.admin == true %>
 <p>
   <strong>Marca active:</strong>
   <%= @marca.marca_active %>
 </p>
+<% end %>
 
 <%= link_to 'Editar', edit_marca_path(@marca) %> |
 <%= link_to 'Atras', marcas_path %>

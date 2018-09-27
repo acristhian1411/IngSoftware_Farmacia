@@ -33,7 +33,11 @@
       <th>Ruc</th>
       <th>Direccion</th>
       <th>Telefono</th>
+
+      <% if current_user.admin == true %>
       <th>Cliente active</th>
+      <% end %>
+
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -48,7 +52,11 @@
               <td><%= cliente.ruc %></td>
               <td><%= cliente.direccion %></td>
               <td><%= cliente.telefono %></td>
+
+      <% if current_user.admin == true %>
               <td><%= cliente.cliente_active %></td>
+      <% end %>
+
               <td><%= link_to 'Mostrar', cliente %></td>
               <td><%= link_to 'Editar', edit_cliente_path(cliente) %></td>
               <td><%= link_to 'Eliminar', cliente, method: :delete, data: { confirm: 'Estás seguro?' } %></td>

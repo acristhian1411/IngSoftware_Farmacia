@@ -24,8 +24,10 @@
                         <table class="table table-striped">
   <thead>
     <tr>
-      <th>Marca descrip</th>
+      <th>Descripcion</th>
+<% if current_user.admin == true %>
       <th>Marca active</th>
+<% end %>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -34,7 +36,11 @@
     <% @marcas.each do |marca| %>
       <tr class="danger">
         <td><%= marca.marca_descrip %></td>
+
+<% if current_user.admin == true %>
         <td><%= marca.marca_active %></td>
+<% end %>
+
         <td><%= link_to 'Mostrar', marca %></td>
         <td><%= link_to 'Editar', edit_marca_path(marca) %></td>
         <td><%= link_to 'Eliminar', marca, method: :delete, data: { confirm: 'Estás seguro?' } %></td>
